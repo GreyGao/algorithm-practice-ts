@@ -69,13 +69,13 @@ export class LinkedStack<T> {
 }
 
 /** 测试 */
-// const stack = new LinkedStack<string>();
-// stack.push('http://baidu.com');
-// stack.push('http://163.com');
-// stack.push('http://qq.com');
-// stack.push('http://126.com');
-// stack.toString();
-// stack.pop();
-// stack.pop();
-// console.log('length:', stack.length);
-// stack.toString();
+const stack = new LinkedStack<string>();
+stack.push('http://baidu.com');
+stack.push('http://163.com');
+stack.push('http://qq.com');
+stack.push('http://126.com');
+stack.toString();
+stack.pop();
+stack.pop();
+console.log('length:', stack.length);
+stack.toString();
