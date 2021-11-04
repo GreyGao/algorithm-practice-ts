@@ -3,6 +3,7 @@
  * 时间复杂度：O(nlog(n))
  * 空间复杂度：O(n)
  * 稳定性：稳定排序, merge函数需稳定
+ * 思路: 分治，先拆至不可拆解，再逐个合并排序
  */
 function mergeSort(list: number[], p: number, r: number) {
   if (list.length <= 1) return;
