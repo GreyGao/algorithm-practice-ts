@@ -5,26 +5,32 @@
  * 稳定性：稳定排序, merge函数需稳定
  * 思路: 分治，先拆至不可拆解，再逐个合并排序
  */
-function mergeSort(list: number[], p: number, r: number) {
+function mergeSort(list: number[]) {
+  mergeSortC(list, 0, list.length - 1);
+}
+function mergeSortC(list: number[], p: number, r: number) {
   if (list.length <= 1) return;
   if (p === r) return;
   const q = Math.floor((r - p) / 2) + p;
-  mergeSort(list, p, q);
-  mergeSort(list, q + 1, r);
+  mergeSortC(list, p, q);
+  mergeSortC(list, q + 1, r);
   mergeArr(list, p, q, r);
   // console.log('>>>3', list);
 }
 
+/** 
+ * merge函数
+ * i为左数组开始下标，j为右数组开始下标
+ * k为临时数组开始下标
+ */
 function mergeArr(list: number[], p: number, q: number, r: number) {
-  let i = p, j = q + 1;
+  let i = p, j = q + 1, k = 0;
   const tmp = [];
   while (i <= q && j <= r) {
     if (list[i] <= list[j]) {
-      tmp.push(list[i]);
-      i++;
+      tmp[k++] = list[i++];
     } else {
-      tmp.push(list[j]);
-      j++;
+      tmp[k++] = list[j++];
     }
   }
 
@@ -36,8 +42,7 @@ function mergeArr(list: number[], p: number, q: number, r: number) {
     end = r;
   }
   while (start <= end) {
-    tmp.push(list[start]);
-    start++;
+    tmp[k++] = list[start++];
   }
 
   // 将数据copy回list对应位置
@@ -49,6 +54,6 @@ function mergeArr(list: number[], p: number, q: number, r: number) {
 const arr = Array(20).fill(0).map(item => Math.round(Math.random() * 100));
 // const arr = [5, 15, 62, 47];
 console.log(arr);
-mergeSort(arr, 0, arr.length - 1);
+mergeSort(arr);
 console.log('Merge Sort:', arr);
 
