@@ -5,7 +5,7 @@
  * 稳定性：不稳定排序, partition函数会发生交换元素打乱顺序
  * 思路: 分治，每分区一次，进行一次排序
  */
-function quickSort(list: number[]) {
+export function quickSort(list: number[]) {
   quickSortC(list, 0, list.length - 1);
 }
 function quickSortC(list: number[], p: number, r: number) {
@@ -35,8 +35,8 @@ function partition(list: number[], p: number, r: number): number {
 }
 
 /** 测试 */
-const arr2 = Array(20).fill(0).map(item => Math.round(Math.random() * 100));
+// const arr2 = Array(20).fill(0).map(item => Math.round(Math.random() * 100));
 // const arr = [6, 11, 3, 9, 8];
-console.log(arr2);
-quickSort(arr2);
-console.log('Quick Sort:', arr2);
+// console.log(arr2);
+// quickSort(arr2);
+// console.log('Quick Sort:', arr2);
