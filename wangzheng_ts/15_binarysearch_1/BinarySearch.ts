@@ -4,7 +4,8 @@ function binarySearch(list: number[], target: number): number {
   let high = list.length - 1;
   while (low <= high) {
     count1++;
-    let mid = Math.floor(low + (high - low) / 2);
+    /** 使用进位符 等于 (high - low) / 2^1 */
+    let mid = Math.floor(low + (high - low) >> 1);
     if (target === list[mid]) {
       return mid;
     } else if (target < list[mid]) {
